@@ -11,8 +11,9 @@ N.B. The bot is not yet fully sentient, don't trust it to make you coffee.
 
 1. Set up an application **and** bot in the [Developer Portal](https://discord.com/developers/applications
 )
-2. Add the bot's DISCORD_TOKEN to `.env`
-3. Add the app id to `config.json`
+2. In the Portal, turn on 'Message Content Intent'
+3. Add the bot's DISCORD_TOKEN to `.env`
+4. Add the app id to `config.json`
 
 **2. Install this repo**
 
