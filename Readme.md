@@ -58,7 +58,7 @@ View the newly created app in the [Heroku dashboard](https://dashboard.heroku.co
 # Usage: Heroku
 You can use Heroku's CLI to...
 
-**Update the cloud isntance **
+**Update the cloud isntance**
 
 `git push heroku main`
 
@@ -66,7 +66,7 @@ You can use Heroku's CLI to...
 
 `heroku ps:scale web=1`
 
-**Monitor the cloud instance **
+**Monitor the cloud instance**
 
 `heroku logs --tail -a <app-name>`
 
