@@ -1,0 +1,11 @@
+setup.py
+src/discbot/__init__.py
+src/discbot/delete_command.py
+src/discbot/main.py
+src/discbot/make_command.py
+src/discbot/utils.py
+src/discbot.egg-info/PKG-INFO
+src/discbot.egg-info/SOURCES.txt
+src/discbot.egg-info/dependency_links.txt
+src/discbot.egg-info/requires.txt
+src/discbot.egg-info/top_level.txt
