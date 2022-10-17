@@ -2,15 +2,18 @@ import os
 import json
 import requests
 import dotenv
+from pathlib import Path
+
 
 if __name__ == "__main__":
 
     # load config
-    with open(os.path.join(os.path.dirname(__file__), "config.json"), "r") as f:
+    config_path = Path(__file__).parents[1] / "config.json"
+    with open(str(config_path), "r") as f:
         CONFIG = json.load(f)
 
     discord_app_id = CONFIG["discord_app_id"]
-    command_id = 00000  # command to delete!
+    command_id = 1028974526505156668  # command to delete!
 
     url = f"https://discord.com/api/v10/applications/{discord_app_id}/commands/{command_id}"
 

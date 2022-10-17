@@ -4,12 +4,12 @@ import argparse
 import discord
 from dotenv import load_dotenv
 
-from discbot.utils import get_discord_bot
+from discbot.utils import get_discord_client
 
 if __name__ == "__main__":
 
     # get bot
-    client = get_discord_bot()
+    client = get_discord_client()
 
     # parse args
     parser = argparse.ArgumentParser(add_help=False)

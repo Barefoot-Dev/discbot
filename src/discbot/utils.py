@@ -16,8 +16,15 @@ class MyClient(discord.Client):
         self.tree = app_commands.CommandTree(self)
 
 
-def get_discord_bot():
+def get_discord_client():
     intents = discord.Intents.default()
     intents.message_content = True
     client = MyClient(intents=intents)
     return client
+
+
+async def send_dm(user_id, message, client):
+    user = await client.fetch_user(user_id)
+    print("Got user", user)
+    user.create_dm()
+    await user.send(message)

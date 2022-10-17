@@ -1,1 +1,1 @@
-worker: python3 src/xfollowx/main.py
+worker: python3 src/discbot/main.py
