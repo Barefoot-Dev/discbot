@@ -5,6 +5,7 @@ import discord
 from dotenv import load_dotenv
 
 from discbot.utils import get_discord_client
+from discbot.features.dropdown import DropdownView
 
 if __name__ == "__main__":
 
@@ -56,6 +57,18 @@ if __name__ == "__main__":
 
         # reply to the user
         await interaction.response.send_message("Hello World!")
+
+        # runs when command is called
+
+    @client.tree.command()
+    async def trigger_dropdown(interaction: discord.Interaction):
+
+        user_id = interaction.user.id
+        await interaction.response.send_message(
+            "Here's a dropdown",
+            view=DropdownView(user_id=user_id, question_ix=0, restarting_quiz=True),
+            ephemeral=True,
+        )
 
     # run the bot
     load_dotenv()
