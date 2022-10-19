@@ -1,9 +1,7 @@
 # Hosted Discord Bot w/ Heroku
 
-A customisable Discord bot written in Python, that can be hosted on Heroku.
+A python-based Discord bot that can be hosted on Heroku.
 More info -> https://devcenter.heroku.com/articles/getting-started-with-python.
-
-N.B. The bot is not yet fully sentient, don't trust it to make you coffee.
 
 # Set up
 
@@ -74,6 +72,3 @@ You can use Heroku's CLI to...
 **Create config / environment vars**
 
 `heroku config:set -a \<app-name> \<key>=\<value>`
-
-
-
