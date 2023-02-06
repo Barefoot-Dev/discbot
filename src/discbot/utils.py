@@ -1,30 +1,32 @@
 import os
-import discord
-from discord import app_commands
+import time
+import requests
+import interactions
+from dotenv import load_dotenv
+from sqlalchemy import sql, types, insert, values, table, column, and_, create_engine
+from sqlalchemy.sql.expression import delete
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
-# taken from: https://github.com/Rapptz/discord.py/blob/master/examples/app_commands/basic.py
-class MyClient(discord.Client):
-    def __init__(self, *, intents: discord.Intents):
-        super().__init__(intents=intents)
-        # A CommandTree is a special type that holds all the application command
-        # state required to make it work. This is a separate class because it
-        # allows all the extra state to be opt-in.
-        # Whenever you want to work with application commands, your tree is used
-        # to store and work with them.
-        # Note: When using commands.Bot instead of discord.Client, the bot will
-        # maintain its own tree instead.
-        self.tree = app_commands.CommandTree(self)
+# from sqlalchemy.orm import Session, registry
+from sqlalchemy.engine import reflection
+
+load_dotenv()
 
 
-def get_discord_client():
-    intents = discord.Intents.default()
-    intents.message_content = True
-    client = MyClient(intents=intents)
-    return client
+def get_discord_bot():
+    return interactions.Client(
+        token=os.getenv("DISCORD_TOKEN"),
+        intents=interactions.Intents.DEFAULT
+        | interactions.Intents.GUILD_MESSAGE_CONTENT,
+    )
+
+
+def get_http_client():
+    return interactions.HTTPClient(token=os.getenv("DISCORD_TOKEN"))
 
 
 async def send_dm(user_id, message, client):
     user = await client.fetch_user(user_id)
     print("Got user", user)
-    user.create_dm()
+    await user.create_dm()
     await user.send(message)

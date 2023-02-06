@@ -10,25 +10,11 @@ More info -> https://devcenter.heroku.com/articles/getting-started-with-python.
 1. Set up an application **and** bot in the [Developer Portal](https://discord.com/developers/applications
 )
 2. In the Portal, turn on 'Message Content Intent'
-3. Add the bot's DISCORD_TOKEN to `.env`
-4. Add the app id to `config.json`
 
 **2. Install this repo**
 
 `pip install -e .`
 
-
-# Usage: this repo
-
-**Create a new slash command for your bot.**
-
-`python make_command.py`
-
-**Delete an existing slash command**
-
-`python delete_command.py`
-
-Now write functions in `main.py` to respond to the commands!
 
 **Run locally**
 
@@ -72,3 +58,9 @@ You can use Heroku's CLI to...
 **Create config / environment vars**
 
 `heroku config:set -a \<app-name> \<key>=\<value>`
+
+**Create a postgres database**
+
+1. Add the Heroku Postgres add-on
+2. Go to the project's settings and get the DATABASE_URL, put it in your local .env.
+3. `pip install sqlalchemy psycopg2-binary`
